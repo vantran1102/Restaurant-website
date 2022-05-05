@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">   
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gupter&display=swap" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+<meta charset="utf-8">
+<title>Star Anise</title>
+    <style>
+       
+        @media screen and (min-width:576px){
+         #container #navigation{
+           
+             position: absolute;
+             right: 30px;
+        }
+        
+        #logo{
+            padding: 10px;
+            height: 80px;
+            width: 300px;
+             
+        }
+        
+        #nav {
+            display: inline;
+   
+        }
+        #nav a{
+           
+           font-family: 'Gupter', serif;
+             box-shadow: 5px 5px 5px rgba(0,0,0,1);
+            padding:5px 20px;
+            margin: 10px 10px;
+            border: 1px solid;
+	        text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color: #ececeb;
+        }
+        body{
+            margin: 0;
+            font-family: 'Gupter', serif;
+        }
+        #logo{
+            padding: 10px;
+            height: 80px;
+            width: 300px;
+        }
+        #intro{
+           
+           
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; 
+            position:sticky;
+            top : 0;
+            background-color: #000000;
+        }
+       
+        #navigation ul{
+            text-decoration: none;
+        }
+        footer #icon a{
+            display: inline;
+            text-decoration: none;
+            margin: 0;
+            
+        }
+        #yelp, #twitter, #insta, #facebook{
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+        }
+        #flexfooter{
+            font-family: 'Gupter', serif;
+            display: flex;
+            justify-content: space-around;
+            box-sizing: border-box;
+	       color: black;
+	       text-align: left;
+	       padding: 50px 50px 60px 50px;
+	       margin-top: 30px;
+           background-color: #f5f6f7;
+            clear: both;
+            left: 0;
+           padding: 20px;
+        
+            
+        }
+        .info{
+            text-align: right;
+            width: 100%;
+            text-transform: uppercase;
+            flex-direction: column;
+            letter-spacing: 0;
+        }
+        #map{
+             font-family:'Raleway', sans-serif;
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 40px 40px 40px;
+        }
+        #col1{
+            margin-right: 10px;
+            flex-basis: 47%;
+        }
+        #col2{
+            flex-basis: 47%;
+             font-family: 'Gupter', serif;
+        }
+        #hour,#direction,#phone{
+            width: 40px;
+            height: 40px;
+        }
+        #pin,#showmap,#tel{
+            width:20px;
+            height: 20px;
+        }
+        #getmap,#call{
+            text-decoration: none;
+            color: black;
+        }
+        
+       #getmap:hover{
+            text-decoration: underline;
+        }
+        #getmap:active{
+            color:#264E36;
+        }
+        #call:hover{
+            text-decoration: underline;
+        }
+        #call:active{
+            color:#264E36;
+        }
+        .modal{
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            
+        }
+        .modal-content{
+             border-radius: 10px;
+              background-color:  #f8f8f8;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+            
+        }
+        #modalcontent{
+             display: flex;
+             align-items: center;
+            flex-direction: column;
+            
+           vertical-align: middle;
+        }
+        .close{
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+        }
+        .close:hover, .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+            @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+    }
+        #mybtn{
+            font-family: 'Gupter', serif;
+            box-shadow: 5px 5px 5px rgba(0,0,0,1);
+            padding:5px 20px;
+            margin: 10px 10px;
+            border: 1px solid;
+	        text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color:  #ececeb;
+            font-size: 16px;
+            text-shadow: 1px 3px 3px rgba(0,0,0,0.3),
+                     0px -2px 5px rgba(255,255,255,0.3);
+        }
+        #mymodal ul li{
+            display: flex;
+            border: 1px solid;
+            margin: 10px 10px;
+            font-size: 20px;
+            padding:20px 20px;
+            font-family: 'Gupter', serif;
+            border-radius: 5px;
+            width: 320px;
+           justify-content: center;
+           
+            }
+        }
+        
+        /*--------------------------------------------------------------------*/
+        /*-------------------------------Phone screen---------------------------*/
+        @media screen and (max-width:1176px){
+             #logo{
+                padding: 10px;
+                height: 80px;
+                width: 300px;
+                
+            }
+             #intro{
+            
+            background-color: #000000;
+            
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+           
+            position:sticky;
+            top : 0;
+        
+        }
+       
+         #container #navigation{
+            text-decoration: none;
+            position: absolute;
+            top: 8px;
+             right: 0;
+             
+             
+        }
+        #nav li{
+            display: inline-flex;
+            
+            margin: 0;
+            
+        }
+        #nav li a{
+           font-family: 'Gupter', serif;
+             box-shadow: 5px 5px 5px rgba(0,0,0,1);
+            padding:5px 20px;
+            margin: 5px 10px;
+            border: 1px solid;
+	        text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color: #ececeb;
+        }
+        body{
+                margin: 0;
+                font-family: 'Gupter', serif;
+            }
+        footer #icon a{
+            display: inline;
+            text-decoration: none;
+            
+            margin: 0;
+            
+        }
+        #yelp, #twitter, #insta, #facebook{
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+        }
+        #flexfooter{
+            font-family: 'Gupter', serif;
+            display: flex;
+            justify-content: space-around;
+            box-sizing: border-box;
+	       color: black;
+	       text-align: left;
+	       padding: 50px 50px 60px 50px;
+	       margin-top: 30px;
+           background-color: #f5f6f7;
+            clear: both;
+            left: 0;
+           padding: 20px;
+            margin-right: 7px;
+        
+        }
+        .info{
+            text-align: right;
+            width: 100%;
+            text-transform: uppercase;
+            flex-direction: column;
+            letter-spacing: 0;
+            
+        }
+        .modal{
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            
+        }
+        .modal-content{
+             border-radius: 10px;
+              background-color: #f8f8f8;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+            
+        }
+        #modalcontent{
+             display: flex;
+             align-items: center;
+            flex-direction: column;
+            
+           vertical-align: middle;
+        }
+        .close{
+            margin-left: 40px; 
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+        }
+        .close:hover, .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+            @keyframes animatetop {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+    }
+        #mybtn{
+            font-family: 'Gupter', serif;
+            box-shadow: 5px 5px 5px rgba(0,0,0,1);
+            padding:5px 20px;
+            margin: 10px 10px;
+            border: 1px solid;
+	        text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color:  #ececeb;
+            font-size: 16px;
+            text-shadow: 1px 3px 3px rgba(0,0,0,0.3),
+                     0px -2px 5px rgba(255,255,255,0.3);
+        }
+        #mymodal ul li{
+            display: flex;
+            border: 1px solid;
+            margin: 10px 10px;
+            font-size: 20px;
+            padding:20px 20px;
+            font-family: 'Gupter', serif;
+            border-radius: 5px;
+            width: 320px;
+           justify-content: center;   
+            
+        }
+            
+            .dropbtn {
+              background-color: #000;
+              color: white;
+              padding: 16px;
+              font-size: 16px;
+              border: none;
+              cursor: pointer;
+                
+            }
+
+            .dropdown {
+              position: relative;
+              display: inline-block;
+            float: right;
+            }
+
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+            }
+
+            .dropdown-content a {
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            }
+
+            .dropdown-content a:hover {background-color: grey}
+            .dropdown-content .orderbtn {
+                cursor: pointer;
+            }
+
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            .dropdown:hover .dropbtn {
+              background-color: #000000;
+            }
+           
+            
+        #hour,#direction,#phone{
+            width: 20px;
+            height: 20px;
+            
+        }
+        #pin,#showmap,#tel{
+            width:10px;
+            height: 10px;
+             
+        }
+        #getmap,#call{
+            text-decoration: none;
+            color: black;
+             
+        }
+        
+       #getmap:hover{
+            text-decoration: underline;
+        }
+        #getmap:active{
+            color:#264E36;
+        }
+        #call:hover{
+            text-decoration: underline;
+        }
+        #call:active{
+            color:#264E36;
+        }
+            
+        }
+    </style>
+    
+    
+    
+</head>
+<body>
+
+<div id="wrapper">
+     <div id="container">
+      <div id="intro" >   
+    <a href="Home.html"><img src="Star_Anise_logo_trans.png" alt="logo" id="logo"></a>
+         
+       <div id="navigation">
+          
+         <div class="dropdown">  
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="dropbtn">&#9776;&nbsp;Menu</span>
+              <div id="nav" class="dropdown-content">
+                <button id="mybtn" class="orderbtn">Order Now</button>
+                <div id="mymodal" class="modal">
+                    <div class="modal-content" >
+                        <span class="close">&times;</span>
+                        <ul id="modalcontent">
+                            <li><a href="tel:+1(408)894-9874" style="text-decoration: none">On-Call Pickup</a></li>
+                            <li><a href="https://www.doordash.com/" style="text-decoration: none" target="_blank">Doordash</a></li>
+                            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSftVl4JDMvBU3sEpc1OAgrxtklqxAqfRNkr8v2wNjUYstmrqw/viewform?usp=sf_link" style="text-decoration: none" target="_blank">Private Event</a></li>
+                        </ul>
+                    </div>
+                
+                </div>
+                <a href="Home.html">Home</a>
+                <a href="Menu.html">Menu</a>
+                <a href="Location.html">Location</a>
+                <a href="Contact.html">Contact Us</a>
+              </div>
+            </div>  
+    
+        <script>
+            var modal = document.getElementById("mymodal");
+            var btn = document.getElementById("mybtn");
+            var span = document.getElementsByClassName("close")[0];
+        
+                btn.onclick = function(){
+                    modal.style.display = "block";
+                }
+                span.onclick = function(){
+                    modal.style.display = "none";
+                }
+                window.onclick = function(event){
+                    if (event.target == modal){
+                        modal.style.display = "none";
+                    }
+                }
+        
+        </script>
+    </div>
+              
+    </div>
+          
+    
+    </div> 
+    <div id="map">
+        <div id="col1">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d25352.406723862263!2d-121.91845540000001!3d37.4122732!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc949b57b7ba5%3A0xc8b1b06558704aea!2sStar%20Anise!5e0!3m2!1sen!2sus!4v1575013791371!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+    
+        <div style="margin-left: 10px;" id="col2">
+            <h1><img src="icon/hours.png" id="hour" alt="hour"> Hours </h1>
+            <h3>Monday - Saturday</h3>
+            <p>11am - 9pm</p>
+            <h3>Sunday</h3>
+            <p>Closed</p>
+            <hr>
+            <h1><img src="icon/direction.png" id="direction" alt="direction"> Location</h1>
+            <p><img src="icon/pin.png" alt="pin" id="pin"> 790 Tasman Dr</p>
+            <p>Milpitas, CA 95035</p>
+            <p><a href="https://www.google.com/maps/dir//Star+Anise,+790+E+Tasman+Dr,+Milpitas,+CA+95035/@37.4120266,-121.9181443,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x808fc949b57b7ba5:0xc8b1b06558704aea!2m2!1d-121.9181443!2d37.4120266!3e0"id="getmap">
+            <img src="icon/map.png" alt="showmap" id="showmap"> Get Directions</a></p>
+            <hr>
+            <h1><img src="icon/phone.png" alt="phone" id="phone"> Phone</h1>
+            <p><a href="tel:(408)894-9874" alt="phonenumber" id="call"><img src="icon/call.png" id="tel"> (408) 894-9874</a></p>
+        </div>
+    </div>
+    <footer>
+        <div id=flexfooter>
+            <div id="icon">
+                <p>Follow us for more information</p><br>
+      
+            <a href="#" target="_blank"><img src="icon/002-yelp.png" alt="yelp" id="yelp"></a>
+            <a href="#" target="_blank"><img src="icon/008-twitter.png" alt="twitter" id="twitter"></a>
+            <a href="#" target="_blank"><img src="icon/029-instagram.png" alt="insta" id="insta"></a>
+            <a href="#" target="_blank"><img src="icon/036-facebook.png" alt="facebook" id="facebook"></a>
+      </div>
+        <div id="contact2">
+            <h3>Hours</h3>
+            <p>Monday - Saturday: 11:00 AM - 9:00 PM</p>
+            <h3>Contact</h3>
+            <p>790 Tasman Dr. Milpitas, California 95035</p>
+            <p>Email: staranise11@gmail.com</p>
+            <p>Tel: +1(408)894-9874</p>
+        </div>
+        <div id="contact3">
+            <p>&copy; 2019-2020 HV Desgin</p>
+            <p>Hoang &amp; Sons LLC</p>        
+        </div> 
+            </div>
+    </footer>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
